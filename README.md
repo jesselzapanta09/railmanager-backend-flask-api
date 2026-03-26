@@ -1,6 +1,6 @@
-# RailManager Flask API
+# MSIT 114 - Activity 19 - Improved Flask API with Front-End
 
-Backend API built with Flask for authentication, users, and train management.
+This project is the **backend API** for the RailManager system, built using Flask, flask-mysqldb, PyJWT, and flask-cors to handle data processing, authentication, email verification, and image management for users and train entities.
 
 ## Requirements
 
@@ -10,18 +10,16 @@ Before running the project, install:
 - MySQL server
 - `pip`
 
-## Clone the project
+## Installation & Setup
+
+### Step 1: Clone the Repository
 
 ```bash
-git clone <your-repository-url>
-cd train-flask-api-v5
+git clone https://github.com/jesselzapanta09/railmanager-backend-flask-api.git
+cd railmanager-backend-flask-api
 ```
 
-## Install dependencies
-
-It is recommended to use a virtual environment.
-
-### Windows CMD
+### Step 2: Install Dependencies
 
 ```cmd
 python -m venv .venv
@@ -29,67 +27,37 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### PowerShell
+### Step 3: Import the Database
 
-```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+1. Open your MySQL client (e.g., MySQL Workbench, phpMyAdmin, or CLI).
+2. Create a new database:
+```sql
+   CREATE DATABASE trainappdb;
 ```
+3. Import the provided SQL file(**trainappdb.sql**)
 
-## Environment variables
 
-Create a `.env` file in the project root and add the required values:
-
-```env
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
-DB_NAME=your_database
-JWT_SECRET=your_jwt_secret
-PORT=5000
-ALLOWED_ORIGINS=http://localhost:3000
-```
-
-## Run the server
+### Step 4: Run the Server
 
 ```bash
 python run.py
 ```
 
-The API will start on:
+The API should now be running at `http://localhost:5000`.
 
-```text
-http://127.0.0.1:5000
-```
+---
 
-## Health check
+# System Feafure using Flask API
 
-Open this URL in your browser after starting the server:
+1. CRUD with image - assigned entity.
+2. User profile — Can modify user information with picture.
+3. User registration using email — Send verification link through email.
+4. Verify user using email address — Cannot log in if account is not verified.
+5. Forgot password using email — Send a reset password link through email.
+6. Log in and log out using authorization.
 
-```text
-http://127.0.0.1:5000/health
-```
 
-Expected response:
 
-```json
-{
-  "success": true,
-  "message": "API is running"
-}
-```
+## Author
 
-## Main routes
-
-- `GET /` - API welcome route
-- `GET /health` - health check
-- `POST /api/...` - auth endpoints
-- `GET /api/trains/...` - train endpoints
-- `GET /api/users/...` - user endpoints
-
-## Notes
-
-- Uploaded files are stored in the `uploads/` directory.
-- CORS origins are controlled by `ALLOWED_ORIGINS`.
-- Database connection values are loaded from `.env`.
+**Jessel Zapanta** — MSIT 114
